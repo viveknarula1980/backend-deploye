@@ -119,7 +119,8 @@ async function getRecentActivity(limit = 5) {
     [limit]
   );
   return rows.map((r) => ({
-user: r.player.slice(-6),    action: r.payout_lamports > 0 ? "Won Game" : "Lost Game",
+    user: r.player,
+    action: r.payout_lamports > 0 ? "Won Game" : "Lost Game",
     amount: `${r.payout_lamports > 0 ? "+" : "-"}${(
       Math.abs(Number(r.payout_lamports)) / 1e9
     ).toFixed(4)} SOL`,
