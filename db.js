@@ -123,7 +123,7 @@ async function getRecentActivity(limit = 5) {
     action: r.payout_lamports > 0 ? "Won Game" : "Lost Game",
     amount: `${r.payout_lamports > 0 ? "+" : "-"}${(
       Math.abs(Number(r.payout_lamports)) / 1e9
-    ).toFixed(2)} SOL`,
+    ).toFixed(4)} SOL`,
     time: new Date(r.created_at).toLocaleTimeString(),
   }));
 }
